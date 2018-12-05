@@ -95,7 +95,7 @@
       }
       span
         font-size .32rem
-        margin-top: .06rem
+        margin-top: .03rem
         color #555
     .homeClicked
       span
