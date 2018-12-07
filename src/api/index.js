@@ -27,4 +27,6 @@ export const reqShopInfo = () => ajax('/info')
 export const reqShopRatings = () => ajax('/ratings')
 
 export const reqShopGoods = () => ajax('/goods')*/
-
+export const reqCategoryList = () => ajax('/category')
+export const reqRecogniseList = () => ajax('/recognise')
+export const reqHomeGoods = () => ajax('/home')

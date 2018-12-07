@@ -14,4 +14,8 @@ export default {
 }
 */
 
-
+export default {
+  category: [],
+  recognise: [],
+  goods: []
+}

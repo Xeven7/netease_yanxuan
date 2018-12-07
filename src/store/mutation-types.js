@@ -17,3 +17,6 @@ export const CLEAR_CART = 'clear_cart'
 export const RECEIVE_SEARCHSHOPS = 'receive_searchshops'
 
 */
+export const RECEIVE_CATEGORY = 'receive_category'
+export const RECEIVE_RECOGNISE = 'receive_recognise'
+export const RECEIVE_HOME_GOODS = 'receive_home_goods'

@@ -1,10 +1,32 @@
-/*
-import {reqLocation, reqFoodTypes, reqShopList, reqUserInfo, reqShopGoods, reqShopRatings, reqShopInfo, reqSearchShop} from '../api'
-import {RECEIVE_FOODTYPES, RECEIVE_LOCATION, RECEIVE_SHOPLIST,
-         RECEIVE_USERINFO, RECEIVE_GOODS, RECEIVE_RATINGS,
-          RECEIVE_INFO, INCREASE_FOODCOUNT, DECREASE_FOODCOUNT, CLEAR_CART, RECEIVE_SEARCHSHOPS} from './mutation-types'
+
+import {reqCategoryList, reqRecogniseList, reqHomeGoods} from '../api'
+import {RECEIVE_CATEGORY, RECEIVE_RECOGNISE, RECEIVE_HOME_GOODS} from './mutation-types'
 import state from "./state";
 
+export default {
+  async getCategory({commit}){
+    const result = await reqCategoryList()
+    if(result.code === 0){
+      commit(RECEIVE_CATEGORY, {category: result.data})
+    }
+  },
+
+  async getRecognise({commit}){
+    const result = await reqRecogniseList()
+    if(result.code === 0){
+      commit(RECEIVE_RECOGNISE, {recognise: result.data})
+    }
+  },
+
+  async getHomeGoods({commit}){
+    const result = await reqHomeGoods()
+    if(result.code === 0){
+      commit(RECEIVE_HOME_GOODS, {goods: result.data})
+    }
+  }
+}
+
+/*
 export default {
   async getLocation ({commit, state}){
     const geohash = state.latitude + ',' + state.longitude

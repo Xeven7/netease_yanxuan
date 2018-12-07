@@ -13,3 +13,13 @@ export default {
   }
 }
 ?*/
+export default {
+  calcTypes (state) {
+    let arr = []
+    state.recognise.forEach((item) => {
+      arr.push(item.topics)
+    })
+    return arr
+
+  },
+}

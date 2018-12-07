@@ -10,73 +10,10 @@
         <div class="loginBtn">登陆</div>
       </div>
       <div class="downHeader">
-        <!--<div class="scrollNav">
-          <div class="navContainer">
-            <nav class="navList">
-              <div class="tab active">
-                <span class="tabTxt">推荐</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">居家</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">鞋包配饰</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">服装</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">电器</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">洗护</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">饮食</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">餐厨</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">文体</span>
-              </div>
-              <div class="tab">
-                <span class="tabTxt">特色区</span>
-              </div>
-            </nav>
-          </div>
-        </div>-->
         <div class="navContainer">
           <ul class="navList">
-            <li class="tab active">
-              <span class="tabTxt">推荐</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">居家</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">鞋包配饰</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">服装</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">电器</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">洗护</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">饮食</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">餐厨</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">文体</span>
-            </li>
-            <li class="tab">
-              <span class="tabTxt">特色区</span>
+            <li class="tab active" v-for="(item, index) in goods.cateList" :key="index">
+              <span class="tabTxt">{{item.name}}</span>
             </li>
           </ul>
         </div>
@@ -256,16 +193,93 @@
               <div class="name">新人专享礼包</div>
               <div class="nameWrap">
                 <div class="card">
-                  <img src="" alt="">
+                  <img src="./images/new.png">
                 </div>
                 <div></div>
               </div>
             </a>
             <div class="contentRight">
-              <div class=""></div>
-              <div></div>
+              <div class="rightUp">
+                <a href="#">
+                  <div class="picOne">
+                    <img src="./images/slide/new1.png" alt="">
+                  </div>
+                  <div class="picTwo">
+                    <div class="discount1">￥44</div>
+                    <div class="discount2">￥59</div>
+                  </div>
+                  <div class="info">
+                    <div class="infoTitle">福利社</div>
+                    <div class="infoSubTitle">今日特价</div>
+                  </div>
+                </a>
+              </div>
+              <div class="rightDown">
+                <a href="#">
+                  <div class="picOne">
+                    <img src="./images/slide/new1.png" alt="">
+                  </div>
+                  <div class="picTwo">
+                    <div class="discount1">￥44</div>
+                    <div class="discount2">￥59</div>
+                  </div>
+                  <div class="info">
+                    <div class="infoTitle">新人拼团</div>
+                    <div class="infoSubTitle">一元起包邮</div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
+        </section>
+        <section class="supply">
+          <div class="title">
+            <div class="titleLeft">
+              <span>品牌制造商直供</span>
+            </div>
+            <a class="titleRight">
+              <span>更多</span>
+              <i class="iconfont icon-rightarrow"></i>
+            </a>
+          </div>
+          <ul class="list">
+            <a href="javascript:;" class="item">
+              <div class="listInfo">
+                <h4 class="listTitle ellipsis">海外制造商</h4>
+                <div class="listSubTitle">
+                  <span>9.9元起</span>
+                  <i>上新</i>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:;" class="item">
+              <div class="listInfo">
+                <h4 class="listTitle ellipsis">海外制造商</h4>
+                <div class="listSubTitle">
+                  <span>9.9元起</span>
+                  <i>上新</i>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:;" class="item">
+              <div class="listInfo">
+                <h4 class="listTitle ellipsis">海外制造商</h4>
+                <div class="listSubTitle">
+                  <span>9.9元起</span>
+                  <i>上新</i>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:;" class="item">
+              <div class="listInfo">
+                <h4 class="listTitle ellipsis">海外制造商</h4>
+                <div class="listSubTitle">
+                  <span>9.9元起</span>
+                  <i>上新</i>
+                </div>
+              </div>
+            </a>
+          </ul>
         </section>
       </div>
       <a href="javascript:;" class="sideBtn">
@@ -277,16 +291,15 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
   import BScroll from 'better-scroll'
 
   export default {
     name: "home",
-    created (){
-
-    },
     mounted(){
+      this.$store.dispatch('getHomeGoods')
       this.$nextTick(() => {
         new BScroll(".navContainer",{
           scrollX: true,
@@ -310,6 +323,9 @@
         })
       })
     },
+    computed: {
+      ...mapState(['goods'])
+    }
   }
 </script>
 
@@ -492,7 +508,197 @@
         background url("./images/discount3.png") no-repeat
         width 10rem
         height: 0.24rem;
-    .sideBtn
+      .giftForNew
+        background-color: #fff;
+        margin-bottom: .26667rem;
+        margin-top: .26667rem;
+        .title
+          height: 1.2rem;
+          width: 100%;
+          line-height: 1.2rem;
+          text-align: center;
+          padding: 0 .4rem;
+          background: #fff;
+          span
+            line-height: 1.2rem;
+            text-align: center;
+            font-size: .42667rem;
+            position relative
+            &::before, &::after
+              content: '';
+              position: absolute;
+              top: .3rem;
+              width: .32rem;
+              height: .04rem;
+              background: #333;
+            &::before
+              left: -.53333rem;
+            &::after
+              right: -.53333rem;
+
+
+        .content
+          padding-left: .4rem;
+          .contentLeft
+            display: block;
+            width: 4.57333rem;
+            height: 5.78667rem;
+            background: #F9E9CF;
+            border-radius: .05333rem;
+            margin-right: .05333rem;
+            float: left;
+            color: #333
+            .name
+              font-size: .42667rem;
+              padding: .4rem 0 0 .4rem;
+            .nameWrap
+              margin: .66667rem auto;
+              width: 3.04rem;
+              height: 3.05333rem;
+              position: relative;
+              .card
+                width: 3.04rem;
+                height: 3.05333rem;
+                img
+                  width 100%
+                  height 100%
+          .contentRight
+            float: left;
+            .rightUp, .rightDown
+              background: #FBE2D3;
+              border-radius: 4px;
+              width: 4.57333rem;
+              height: 2.86667rem;
+              margin-bottom: .05333rem;
+              a
+                display: block;
+                color: #333;
+                width: 4.57333rem;
+                height: 2.86667rem;
+                float: left;
+                border-radius: .05333rem;
+                margin: 0 .05333rem .05333rem 0;
+                font-size: .32rem;
+                padding: .26667rem 0 0 .4rem;
+                position relative
+                .picOne
+                  width: 2.66667rem;
+                  height: 2.66667rem;
+                  position: absolute;
+                  right: .34rem;
+                  top: .26667rem;
+                  img
+                    width 100%
+                    height 100%
+
+                .picTwo
+                  position: absolute;
+                  top: .3rem;
+                  right: .8rem;
+                  width: 1.06667rem;
+                  height: .9rem;
+                  opacity: .8;
+                  background: #F59524;
+                  border-radius: 50%;
+                  padding-top: .13333rem;
+                  color: #fff;
+                  text-align: center;
+                  z-index 10
+                  .discount2
+                    font-size: .26667rem;
+                    vertical-align center
+                    text-decoration: line-through;
+
+
+                .info
+                  .infoTitle
+                    font-size: .42667rem;
+                    margin-bottom: .1rem;
+
+            .rightDown
+              background: #FFECC2;
+              border-radius: 4px;
+              width: 4.57333rem;
+              height: 2.86667rem;
+              .infoSubTitle
+                position: relative;
+                display: inline-block;
+                padding: 0 .13333rem;
+                height: .42667rem;
+                background: #CBB693;
+                border-radius: .05333rem;
+                color: #fff;
+                font-size: .24rem;
+                line-height: .42667rem;
+                text-align: center;
+      .supply
+        /*padding-bottom: .10667rem;*/
+        width 9.2rem
+        .title
+          width: 100%;
+          height: 1.33333rem;
+          line-height: 1.33333rem;
+          padding: 0 .5rem;
+          background: #fff;
+          overflow: hidden;
+          .titleLeft
+            float: left;
+            font-size: .42667rem;
+          .titleRight
+            display: block;
+            font-size: .37333rem;
+            float: right;
+            color: #333;
+            line-height: 1.33333rem;
+        .list
+          width 100%
+          position: relative;
+          overflow: hidden;
+          background: #fff;
+          margin-bottom: .26667rem;
+          padding: 0 .34667rem .34667rem .4rem
+          display flex
+          /*justify-content space-between*/
+          flex-wrap wrap
+          .item
+            background url("./images/goods3-1.png") no-repeat
+            background-size: 100% 100%;
+            display: inline-block;
+            position: relative;
+            margin: 0 .05333rem .05333rem 0;
+            width: 4.5rem;
+            height: 3.46667rem;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            border-radius: .05333rem;
+            .listInfo
+              position: absolute;
+              left: 0;
+              top: 0;
+              padding-top: .30667rem;
+              width: 100%;
+              z-index: 4;
+              text-align: center;
+              .listTitle
+                color: #333;
+                font-family: PingFangSC-Medium;
+                font-size: .37333rem;
+                line-height: .45333rem;
+                margin-bottom: .04rem;
+
+              .listSubTitle
+                i
+                  display: inline-block;
+                  width: .85333rem;
+                  height: .42667rem;
+                  color: #fff;
+                  line-height: .42667rem;
+                  text-align: center;
+                  background: #CBB693;
+                  border-radius: .05333rem;
+                  margin-left: .13333rem;
+
+  .sideBtn
       display block
       width 1.49333rem
       height 1.06667rem

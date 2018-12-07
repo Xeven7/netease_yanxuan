@@ -2,20 +2,20 @@
   <div>
     <header class="header">
       <div class="toHome">
-        <a href="javascript:;">
+        <router-link to="/home">
           <i class="iconfont icon-shouye"></i>
-        </a>
+        </router-link>
       </div>
       <div class="title">
         <a href="javascript:;" class="titleImg"></a>
       </div>
       <div class="rightIcons">
-        <a href="javascript:;">
+        <router-link to="/search">
           <i class="iconfont icon-sousuo1"></i>
-        </a>
-        <a href="javascript:;">
+        </router-link>
+        <router-link to="cart">
           <i class="iconfont icon-gouwuche1"></i>
-        </a>
+        </router-link>
       </div>
     </header>
     <div class="wrap">
@@ -25,18 +25,24 @@
             <img src="./images/logo.png" alt="">
           </div>
           <div class="btnWrap">
-            <div class="mobileBtn">
-              <i class="iconfont icon-shouji"></i>
-              <span>手机号码登陆</span>
-            </div>
-            <div class="emailBtn">
-              <i class="iconfont icon-e-mail_icon"></i>
-              <span>邮箱账号登陆</span>
-            </div>
-            <div class="loginBtn">
-              <span>手机号快速注册</span>
-              <i class="iconfont icon-rightarrow"></i>
-            </div>
+            <router-link to="/phone">
+              <div class="mobileBtn">
+                <i class="iconfont icon-shouji"></i>
+                <span>手机号码登陆</span>
+              </div>
+            </router-link>
+            <router-link to="/email">
+              <div class="emailBtn">
+                <i class="iconfont icon-e-mail_icon"></i>
+                <span>邮箱账号登陆</span>
+              </div>
+            </router-link>
+            <router-link to="/register">
+              <div class="loginBtn">
+                <span>手机号快速注册</span>
+                <i class="iconfont icon-rightarrow"></i>
+              </div>
+            </router-link>
           </div>
         </div>
         <div class="bottomIcons">
@@ -124,6 +130,7 @@
   .wrap
     height 17rem
     .defaultInfo
+      width 100%
       position relative
       height 100%
       background #F2F5F4

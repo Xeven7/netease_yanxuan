@@ -8,7 +8,9 @@ import Recognise from '../pages/Recognise/Recognise.vue'
 import Cart from '../pages/Cart/Cart.vue'
 import Personal from '../pages/Personal/Personal.vue'
 import Search from '../pages/Search/Search.vue'
-
+import phoneLogin from '../pages/phoneLogin/phoneLogin.vue'
+import emailLogin from '../pages/emailLogin/emailLogin.vue'
+import Register from '../pages/Register/Register.vue'
 
 /*外层大组件才使用组件懒加载*/
 /*const Home = () => import('../pages/Home/Home.vue')*/
@@ -58,6 +60,19 @@ export default new VueRouter({
     {
       path:'/',
       redirect: '/home'
+    },
+
+    {
+      path:'/phone',
+      component: phoneLogin,
+    },
+    {
+      path:'/email',
+      component: emailLogin,
+    },
+    {
+      path:'/register',
+      component: Register,
     },
   ]
 })

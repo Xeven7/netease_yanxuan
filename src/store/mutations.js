@@ -1,21 +1,10 @@
-/*
-import Vue from 'vue'
-import {RECEIVE_FOODTYPES,
-  RECEIVE_LOCATION,
-  RECEIVE_SHOPLIST,
-  RECEIVE_USERINFO,
-  RESET_USERINFO,
-  RECEIVE_GOODS,
-  RECEIVE_INFO,
-  RECEIVE_RATINGS,
-  INCREASE_FOODCOUNT,
-  DECREASE_FOODCOUNT,
-  CLEAR_CART,
-  RECEIVE_SEARCHSHOPS
-  } from './mutation-types'
-// import state from "./state";
 
-export default {
+import Vue from 'vue'
+import {RECEIVE_CATEGORY, RECEIVE_RECOGNISE, RECEIVE_HOME_GOODS
+  } from './mutation-types'
+/*import state from "./state";*/
+
+/*export default {
   [RECEIVE_LOCATION](state, {location}){
     state.location = location
   },
@@ -66,4 +55,15 @@ export default {
     state.searchShops = searchShops
   },
 }
-?*/
+*/
+export default {
+  [RECEIVE_CATEGORY](state, {category}){
+    state.category = category
+  },
+  [RECEIVE_RECOGNISE](state, {recognise}){
+    state.recognise = recognise
+  },
+  [RECEIVE_HOME_GOODS](state, {goods}){
+    state.goods = goods
+  }
+}
